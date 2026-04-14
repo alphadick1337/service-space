@@ -205,9 +205,7 @@ const Landing = () => {
               <div className="flex-1 space-y-3">
                 <h3 className="text-xl font-serif text-foreground">{item.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">{item.desc}</p>
-                <div className="w-full h-48 rounded-lg bg-muted flex items-center justify-center text-muted-foreground text-sm border border-border/50">
-                  Platshållare för skärmbild
-                </div>
+                <img src={item.image} alt={item.title} loading="lazy" width={1280} height={720} className="w-full rounded-lg border border-border/50 shadow-sm object-cover" />
               </div>
             </motion.div>
           ))}
