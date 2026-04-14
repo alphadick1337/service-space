@@ -2,6 +2,9 @@ import { motion } from "framer-motion";
 import { ExternalLink, Zap, Code, Palette, CheckCircle, XCircle, ArrowRight } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import caseStep1 from "@/assets/case-step1.jpg";
+import caseStep2 from "@/assets/case-step2.jpg";
+import caseResult from "@/assets/case-result.jpg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -167,18 +170,21 @@ const Landing = () => {
               title: "Beskrivning av tjänsten",
               desc: "Jag beskrev en tjänstemarknadsplats med filtrering, bokningssystem och formulär för att lägga upp egna tjänster.",
               color: "bg-primary",
+              image: caseStep1,
             },
             {
               step: "Steg 2",
               title: "Generering & iteration",
               desc: "Lovable genererade hela applikationen inklusive komponenter, routing och designsystem. Jag itererade med ytterligare instruktioner för att förbättra resultatet.",
               color: "bg-accent",
+              image: caseStep2,
             },
             {
               step: "Resultat",
               title: "Färdig applikation",
               desc: "En fullt fungerande tjänstemarknadsplats med sökfunktion, kategorifilter, områdesfiltrering och bokningsformulär — byggd helt utan manuell kodning.",
               color: "bg-primary",
+              image: caseResult,
             },
           ].map((item, i) => (
             <motion.div
@@ -199,9 +205,7 @@ const Landing = () => {
               <div className="flex-1 space-y-3">
                 <h3 className="text-xl font-serif text-foreground">{item.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">{item.desc}</p>
-                <div className="w-full h-48 rounded-lg bg-muted flex items-center justify-center text-muted-foreground text-sm border border-border/50">
-                  Platshållare för skärmbild
-                </div>
+                <img src={item.image} alt={item.title} loading="lazy" width={1280} height={720} className="w-full rounded-lg border border-border/50 shadow-sm object-cover" />
               </div>
             </motion.div>
           ))}
