@@ -41,15 +41,15 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
-        <div className="container flex items-center justify-between h-16">
-          <h1 className="text-2xl font-serif text-foreground">Tjänstbörsen</h1>
-          <Button onClick={() => setCreateOpen(true)} className="bg-accent text-accent-foreground hover:bg-accent/90">
+      {/* Sub-header */}
+      <div className="bg-secondary/30 border-b border-border/50">
+        <div className="container flex items-center justify-between h-12">
+          <h1 className="text-lg font-serif text-foreground">Tjänstbörsen</h1>
+          <Button onClick={() => setCreateOpen(true)} size="sm" className="bg-accent text-accent-foreground hover:bg-accent/90">
             <Plus className="w-4 h-4 mr-2" /> Lägg upp tjänst
           </Button>
         </div>
-      </header>
+      </div>
 
       {/* Hero */}
       <section className="relative overflow-hidden">
