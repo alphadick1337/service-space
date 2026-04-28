@@ -11,23 +11,34 @@ import NotFound from "./pages/NotFound.tsx";
 const queryClient = new QueryClient();
 const routerBase = import.meta.env.BASE_URL;
 const useHashRouter = routerBase === "./" || routerBase === ".";
-const Router = useHashRouter ? HashRouter : BrowserRouter;
+
+const AppRoutes = () => (
+  <>
+    <Navbar />
+    <Routes>
+      <Route path="/" element={<Index />} />
+      <Route path="/portfolio" element={<Landing />} />
+      <Route path="/tjanster" element={<Index />} />
+      {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  </>
+);
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <Router {...(!useHashRouter ? { basename: routerBase } : {})}>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/portfolio" element={<Landing />} />
-          <Route path="/tjanster" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Router>
+      {useHashRouter ? (
+        <HashRouter>
+          <AppRoutes />
+        </HashRouter>
+      ) : (
+        <BrowserRouter basename={routerBase}>
+          <AppRoutes />
+        </BrowserRouter>
+      )}
     </TooltipProvider>
   </QueryClientProvider>
 );
