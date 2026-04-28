@@ -5,8 +5,8 @@ const Navbar = () => {
   const { pathname } = useLocation();
 
   const links = [
-    { to: "/", label: "Portfolio" },
-    { to: "/tjanster", label: "Tjänstbörsen" },
+    { to: "/", label: "Tjänstbörsen" },
+    { to: "/portfolio", label: "Portfolio" },
   ];
 
   return (
