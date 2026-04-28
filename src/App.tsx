@@ -18,7 +18,8 @@ const App = () => (
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Landing />} />
+          <Route path="/" element={<Index />} />
+          <Route path="/portfolio" element={<Landing />} />
           <Route path="/tjanster" element={<Index />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
